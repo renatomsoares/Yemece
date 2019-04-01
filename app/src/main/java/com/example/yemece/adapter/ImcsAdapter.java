@@ -1,6 +1,7 @@
 package com.example.yemece.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import com.example.yemece.R;
 import com.example.yemece.data.Imc;
+import com.example.yemece.enums.GravidadeIndiceImc;
+import com.example.yemece.helpers.CalculoImcHelper;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -46,6 +49,8 @@ public class ImcsAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
         ViewHolder holder;
+        CalculoImcHelper calculoImc = new CalculoImcHelper(R.id.txt_peso,R.id.txt_altura);
+
 
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,6 +59,8 @@ public class ImcsAdapter extends BaseAdapter {
             holder.txtSituacao = view.findViewById(R.id.txt_situacao);
             holder.txtPeso = view.findViewById(R.id.txt_peso);
             holder.txtAltura = view.findViewById(R.id.txt_altura);
+            holder.txtDataRegistro = view.findViewById(R.id.txt_dataRegistro);
+
 
             view.setTag(holder);
 
@@ -63,9 +70,15 @@ public class ImcsAdapter extends BaseAdapter {
 
         Imc imc = imcs.get(position);
 
+        holder.txtDataRegistro.setText(imc.getDataRegistro());
+        holder.txtPeso.setText(Double.toString(imc.getPeso()) + "kg");
+        holder.txtAltura.setText(Double.toString(imc.getAltura()) + "m");
         holder.txtSituacao.setText(imc.getSituacao());
-        holder.txtPeso.setText(nf.format(imc.getPeso()));
-        holder.txtAltura.setText(nf.format(imc.getAltura()));
+
+
+        if (calculoImc.getGravidadeIndice() == GravidadeIndiceImc.ALTA) {
+            holder.txtSituacao.setTextColor(ContextCompat.getColor(context, R.color.riscoAlto));
+        }
 
         return view;
     }
@@ -79,5 +92,6 @@ public class ImcsAdapter extends BaseAdapter {
         public TextView txtSituacao;
         public TextView txtPeso;
         public TextView txtAltura;
+        public TextView txtDataRegistro;
     }
 }

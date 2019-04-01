@@ -8,18 +8,6 @@
     android:paddingTop="16dp"
     android:paddingBottom="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:labelFor="@+id/edt_situacao"
-        style="?android:attr/textAppearanceMedium"
-        android:text="Situação" />
-
-    <EditText
-        android:id="@+id/edt_situacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textCapSentences" />
 
     <TextView
     android:layout_width="match_parent"

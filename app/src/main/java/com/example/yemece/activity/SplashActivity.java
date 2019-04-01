@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 SystemClock.sleep(3000);
-                startActivity(new Intent(getApplicationContext(),ListImcsActivity.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 finish();
             }
         }).start();

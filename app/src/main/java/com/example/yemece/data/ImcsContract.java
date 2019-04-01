@@ -9,6 +9,7 @@ public final class ImcsContract {
         public static final String SITUACAO = "situacao";
         public static final String PESO = "peso";
         public static final String ALTURA = "altura";
+        public static final String DATAREGISTRO = "dataregistro";
 
     }
 }

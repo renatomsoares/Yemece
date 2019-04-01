@@ -9,11 +9,14 @@ import android.widget.Toast;
 import com.example.yemece.R;
 import com.example.yemece.data.Imc;
 import com.example.yemece.data.ImcDAO;
+import com.example.yemece.helpers.CalculoImcHelper;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class EditImcActivity extends Activity {
 
     private ImcDAO imcDAO;
-    private EditText edtSituacao;
     private EditText edtPeso;
     private EditText edtAltura;
 
@@ -25,7 +28,6 @@ public class EditImcActivity extends Activity {
 
         setContentView(R.layout.activity_editimc);
 
-        edtSituacao = findViewById(R.id.edt_situacao);
         edtPeso = findViewById(R.id.edt_peso);
         edtAltura = findViewById(R.id.edt_altura);
 
@@ -34,7 +36,6 @@ public class EditImcActivity extends Activity {
         imc = (Imc) getIntent().getSerializableExtra("imc");
 
         if (imc != null) {
-            edtSituacao.setText(imc.getSituacao());
             edtPeso.setText(String.valueOf(imc.getPeso()));
             edtAltura.setText(String.valueOf(imc.getAltura()));
 
@@ -47,21 +48,24 @@ public class EditImcActivity extends Activity {
     }
 
     public void process(View view) {
-        String situacao = edtSituacao.getText().toString();
         double peso = Double.parseDouble(edtPeso.getText().toString());
         double altura = Double.parseDouble(edtAltura.getText().toString());
+        CalculoImcHelper calculoImc = new CalculoImcHelper(peso, altura);
 
         String msg;
 
         if (imc == null) {
-            Imc imc = new Imc(situacao, peso, altura);
+
+            Date hoje = new Date();
+            Imc imc = new Imc(calculoImc.getSituacao(), peso, altura, new SimpleDateFormat("dd-MM-yyyy (hh:mm)").format(hoje));
             imcDAO.save(imc);
             msg = "IMC gravado com ID = " + imc.getId();
 
         } else {
-            imc.setSituacao(situacao);
+            imc.setSituacao(calculoImc.getSituacao());
             imc.setPeso(peso);
             imc.setAltura(altura);
+            // A atualização mantém a data de registro.
 
             imcDAO.update(imc);
             msg = "IMC atualizado com ID = " + imc.getId();

@@ -10,13 +10,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final int BD_VERSION = 1;
 
     private static String SQL_CREATE = String.format(
-            "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "%s TEXT NOT NULL, %s DOUBLE NOT NULL, %s DOUBLE NOT NULL)",
+            "CREATE TABLE %s (" +
+                    "%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "%s TEXT NOT NULL, " +
+                    "%s DOUBLE NOT NULL, " +
+                    "%s DOUBLE NOT NULL, " +
+                    "%s TEXT NOT NULL )",
             ImcsContract.TABLE_NAME,
             ImcsContract.Columns._ID,
             ImcsContract.Columns.SITUACAO,
             ImcsContract.Columns.PESO,
-            ImcsContract.Columns.ALTURA);
+            ImcsContract.Columns.ALTURA,
+            ImcsContract.Columns.DATAREGISTRO);
 
     private static String SQL_DROP = "DROP TABLE IF EXISTS " + ImcsContract.TABLE_NAME;
 
@@ -43,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
         onCreate(db);
     }
 }

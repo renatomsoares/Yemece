@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#17D4FF</color>
+    <color name="colorPrimaryDark">#1094BB</color>
+    <color name="colorAccent">#ddd7</color>
+
+
+    <color name="riscoBaixo">#ffd700</color>
+    <color name="riscoAlto">#cc0000 </color>
+    <color name="riscoZero">#3ac507 </color>
+
 </resources>
