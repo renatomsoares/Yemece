@@ -65,13 +65,14 @@ public class EditImcActivity extends Activity {
                 situacao = ". Você precisa ganhar " + String.format("%.2f", Math.abs(calculoImc.getDiferencaPesoParaSituacaoIdeal())) + "kg para atingir o IMC ideal.";
             }
         }
-        msg = "IMC registrado em = " + imc.getDataRegistro() + situacao;
 
         if (imc == null) {
 
             Date hoje = new Date();
             Imc imc = new Imc(calculoImc.getSituacao(), peso, altura, new SimpleDateFormat("dd-MM-yyyy (hh:mm)").format(hoje));
             imcDAO.save(imc);
+            msg = "IMC registrado em = " + imc.getDataRegistro() + situacao;
+
 
         } else {
             imc.setSituacao(calculoImc.getSituacao());

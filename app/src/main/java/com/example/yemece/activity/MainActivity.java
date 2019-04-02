@@ -1,13 +1,11 @@
 package com.example.yemece.activity;
 
-import android.app.ListActivity;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+
 
 import com.example.yemece.R;
 
@@ -41,4 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void simuladorImc(View view) {
+        Intent editImc = new Intent(this, SimuladorImcActivity.class);
+        startActivity(editImc);
+    }
+
+    public void tabelaClassificacao(View view) {
+        Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/renatomsoares/Yemece/blob/master/tabela-imc.png"));
+        startActivity(viewIntent);
+    }
+
+    public void alarmControl(View view) {
+        Intent alarmControl = new Intent(this, AlarmControlActivity.class);
+        startActivity(alarmControl);
+    }
 }

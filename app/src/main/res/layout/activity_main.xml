@@ -21,14 +21,13 @@
         app:srcCompat="@drawable/logo" />
 
 
-
     <Button
         android:id="@+id/btnNovoIMC"
         style="@style/AppTheme.Button"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:onClick="editImc"
         android:text="Registrar IMC"
@@ -43,9 +42,9 @@
         android:id="@+id/btnListIMCs"
         style="@style/AppTheme.Button"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:onClick="listImcs"
         android:text="@string/historico_mcs"
@@ -57,31 +56,49 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/tabelaClassificacao"
+        android:id="@+id/btnSimuladorImc"
         style="@style/AppTheme.Button"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:onClick="editImc"
+        android:onClick="simuladorImc"
+        android:text="Simulador de IMC"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnListIMCs"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/tabelaClassificacao"
+        style="@style/AppTheme.Button"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="tabelaClassificacao"
         android:text="@string/tabela_classificacao"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnListIMCs" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSimuladorImc" />
 
     <Button
         android:id="@+id/configuraMeta"
         style="@style/AppTheme.Button"
         android:layout_width="0dp"
-        android:layout_height="62dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:onClick="editImc"
+        android:onClick="alarmControl"
         android:text="@string/alarme_controle"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -94,7 +111,7 @@
         android:id="@+id/btnSair"
         style="@style/AppTheme.Button"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"

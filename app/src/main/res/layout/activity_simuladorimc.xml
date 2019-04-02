@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SimuladorImcActivity"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+
+
+    <fragment
+        android:id="@+id/colors_frag"
+        android:name="com.example.yemece.fragments.ColorsFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:layout="@layout/colors_fragment"/>
+
+    <fragment
+        android:id="@+id/show_color_frag"
+        android:name="com.example.yemece.fragments.ShowColorFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/show_color_fragment" />
+
+</LinearLayout>
