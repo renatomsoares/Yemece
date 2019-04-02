@@ -21,7 +21,8 @@
         android:id="@+id/edt_peso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:maxLength="5"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -29,13 +30,15 @@
         android:layout_marginTop="30dp"
         android:labelFor="@+id/edt_altura"
         android:text="Altura"
-        style="?android:attr/textAppearanceMedium" />
+        style="?android:attr/textAppearanceMedium"
+        />
 
     <EditText
         android:id="@+id/edt_altura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:maxLength="4"/>
 
     <LinearLayout
         style="?android:attr/buttonBarStyle"

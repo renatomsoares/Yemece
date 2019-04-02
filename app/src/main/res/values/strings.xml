@@ -7,4 +7,8 @@
     <string name="txt_valor">Valor:</string>
     <string name="btn_cancel">Cancelar</string>
     <string name="btn_ok">OK</string>
+    <string name="historico_mcs">Histórico de IMC\'s</string>
+    <string name="tabela_classificacao">Tabela de Classificação</string>
+    <string name="alarme_controle">Alarme de Controle</string>
+    <string name="sair">Sair</string>
 </resources>
