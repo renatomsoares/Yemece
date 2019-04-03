@@ -12,17 +12,17 @@ import android.widget.Button;
 
 import com.example.yemece.R;
 
-public class ColorsFragment extends Fragment implements View.OnClickListener{
+public class DicasFragment extends Fragment implements View.OnClickListener{
 
     private OnGetButtonId listener;
 
     private Button genericButton;
 
-    private Button btnBlack;
-    private Button btnBlue;
-    private Button btnGreen;
-    private Button btnYellow;
-    private Button btnRed;
+    private Button dica1;
+    private Button dica2;
+    private Button dica3;
+    private Button dica4;
+    private Button dica5;
 
 
     @Override
@@ -42,20 +42,20 @@ public class ColorsFragment extends Fragment implements View.OnClickListener{
                 container,
                 false);
 
-        btnBlack = view.findViewById(R.id.btnBlack);
-        btnBlack.setOnClickListener(this);
+        dica1 = view.findViewById(R.id.btnDica1);
+        dica1.setOnClickListener(this);
 
-        btnBlue = view.findViewById(R.id.btnBlue);
-        btnBlue.setOnClickListener(this);
+        dica2 = view.findViewById(R.id.btnDica2);
+        dica2.setOnClickListener(this);
 
-        btnGreen = view.findViewById(R.id.btnGreen);
-        btnGreen.setOnClickListener(this);
+        dica3 = view.findViewById(R.id.btnDica3);
+        dica3.setOnClickListener(this);
 
-        btnYellow = view.findViewById(R.id.btnYellow);
-        btnYellow.setOnClickListener(this);
+        dica4 = view.findViewById(R.id.btnDica4);
+        dica4.setOnClickListener(this);
 
-        btnRed = view.findViewById(R.id.btnRed);
-        btnRed.setOnClickListener(this);
+        dica5 = view.findViewById(R.id.btnDica5);
+        dica5.setOnClickListener(this);
 
         return view;
     }

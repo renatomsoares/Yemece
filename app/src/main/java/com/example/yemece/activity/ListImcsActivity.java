@@ -16,6 +16,7 @@ import com.example.yemece.adapter.ImcsAdapter;
 import com.example.yemece.data.Imc;
 import com.example.yemece.data.ImcDAO;
 import com.example.yemece.dialog.DeleteDialog;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -26,11 +27,16 @@ public class ListImcsActivity extends ListActivity implements OnItemLongClickLis
     private ImcDAO imcDAO;
     private ImcsAdapter adapter;
 
+    private FirebaseAuth firebaseAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_listimcs);
+
+        this.firebaseAuth = FirebaseAuth.getInstance();
 
         adapter = new ImcsAdapter(this);
         setListAdapter(adapter);
@@ -40,11 +46,13 @@ public class ListImcsActivity extends ListActivity implements OnItemLongClickLis
 
         imcDAO = ImcDAO.getInstance(this);
 
-        updateList();
+        if (firebaseAuth.getCurrentUser() != null) {
+            updateList(firebaseAuth.getCurrentUser().getUid());
+        }
     }
 
-    private void updateList() {
-        List<Imc> imcs = imcDAO.list();
+    private void updateList(String usuarioCadastro) {
+        List<Imc> imcs = imcDAO.list(usuarioCadastro);
         adapter.setItems(imcs);
     }
 
@@ -70,7 +78,9 @@ public class ListImcsActivity extends ListActivity implements OnItemLongClickLis
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQ_EDIT && resultCode == RESULT_OK) {
-            updateList();
+            if (firebaseAuth.getCurrentUser() != null) {
+                updateList(firebaseAuth.getCurrentUser().getUid());
+            }
         }
     }
 
@@ -94,6 +104,8 @@ public class ListImcsActivity extends ListActivity implements OnItemLongClickLis
     @Override
     public void onDelete(Imc imc) {
         imcDAO.delete(imc);
-        updateList();
+        if (firebaseAuth.getCurrentUser() != null) {
+            updateList(firebaseAuth.getCurrentUser().getUid());
+        }
     }
 }

@@ -15,13 +15,16 @@ public class DBHelper extends SQLiteOpenHelper {
                     "%s TEXT NOT NULL, " +
                     "%s DOUBLE NOT NULL, " +
                     "%s DOUBLE NOT NULL, " +
-                    "%s TEXT NOT NULL )",
+                    "%s TEXT NOT NULL, " +
+                    "%s TEXT NOT NULL)",
             ImcsContract.TABLE_NAME,
             ImcsContract.Columns._ID,
             ImcsContract.Columns.SITUACAO,
             ImcsContract.Columns.PESO,
             ImcsContract.Columns.ALTURA,
-            ImcsContract.Columns.DATAREGISTRO);
+            ImcsContract.Columns.DATAREGISTRO,
+            ImcsContract.Columns.USUARIOCADASTRO);
+
 
     private static String SQL_DROP = "DROP TABLE IF EXISTS " + ImcsContract.TABLE_NAME;
 

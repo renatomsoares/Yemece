@@ -8,14 +8,16 @@ public class Imc implements Serializable {
     private double peso;
     private double altura;
     private String dataRegistro;
+    private String usuarioCadastro;
 
 
-    public Imc(int id, String situacao, double peso, double altura, String dataRegistro) {
+    public Imc(int id, String situacao, double peso, double altura, String dataRegistro, String usuarioCadastro) {
         this.id = id;
         this.situacao = situacao;
         this.peso = peso;
         this.altura = altura;
         this.dataRegistro = dataRegistro;
+        this.usuarioCadastro = usuarioCadastro;
 
     }
 
@@ -65,5 +67,12 @@ public class Imc implements Serializable {
 
     public void setDataRegistro(String dataRegistro) {
         this.dataRegistro = dataRegistro;
+    }
+
+    public String getUsuarioCadastro() {
+        return usuarioCadastro;
+    }
+
+    public void setUsuarioCadastro(String usuarioCadastro) { this.usuarioCadastro = usuarioCadastro;
     }
 }

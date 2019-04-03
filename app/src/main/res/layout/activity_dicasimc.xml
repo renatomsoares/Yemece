@@ -4,27 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SimuladorImcActivity"
-    android:orientation="horizontal"
+    tools:context=".activity.DicasImcActivity"
+    android:orientation="vertical"
     android:padding="16dp"
     android:background="#FFFFFF"
     >
 
 
-
     <fragment
         android:id="@+id/colors_frag"
-        android:name="com.example.yemece.fragments.ColorsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        tools:layout="@layout/dicas_fragment"/>
+        android:name="com.example.yemece.fragments.DicasFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/dicas_fragment" />
 
     <fragment
         android:id="@+id/show_color_frag"
-        android:name="com.example.yemece.fragments.ShowColorFragment"
-        android:layout_width="wrap_content"
+        android:name="com.example.yemece.fragments.ExibeDicaFragment"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        tools:layout="@layout/show_color_fragment" />
+        tools:layout="@layout/exibe_dica_fragment" />
 
 </LinearLayout>

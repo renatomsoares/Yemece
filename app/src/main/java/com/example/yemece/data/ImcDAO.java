@@ -26,13 +26,14 @@ public class ImcDAO {
         return instance;
     }
 
-    public List<Imc> list() {
+    public List<Imc> list(String usuarioLogado) {
         String[] columns = {
                 ImcsContract.Columns._ID,
                 ImcsContract.Columns.SITUACAO,
                 ImcsContract.Columns.PESO,
                 ImcsContract.Columns.ALTURA,
-                ImcsContract.Columns.DATAREGISTRO
+                ImcsContract.Columns.DATAREGISTRO,
+                ImcsContract.Columns.USUARIOCADASTRO
         };
 
         List<Imc> imcs = new ArrayList<>();
@@ -45,7 +46,11 @@ public class ImcDAO {
 
                 do {
                     Imc imc = ImcDAO.fromCursor(c);
-                    imcs.add(imc);
+
+                    //Listar apenas os IMC's do usuário logado.
+                    if (imc.getUsuarioCadastro().equals(usuarioLogado)) {
+                        imcs.add(imc);
+                    }
 
                 } while(c.moveToNext());
 
@@ -63,6 +68,8 @@ public class ImcDAO {
         values.put(ImcsContract.Columns.PESO, imc.getPeso());
         values.put(ImcsContract.Columns.ALTURA, imc.getAltura());
         values.put(ImcsContract.Columns.DATAREGISTRO, imc.getDataRegistro().toString());
+        values.put(ImcsContract.Columns.USUARIOCADASTRO, imc.getUsuarioCadastro().toString());
+
 
         long id = db.insert(ImcsContract.TABLE_NAME, null, values);
 
@@ -100,8 +107,9 @@ public class ImcDAO {
         double peso = c.getDouble(c.getColumnIndex(ImcsContract.Columns.PESO));
         double altura = c.getDouble(c.getColumnIndex(ImcsContract.Columns.ALTURA));
         String dataRegistro = c.getString(c.getColumnIndex(ImcsContract.Columns.DATAREGISTRO));
+        String usuarioCadastro = c.getString(c.getColumnIndex(ImcsContract.Columns.USUARIOCADASTRO));
 
-        return new Imc(id, situacao, peso, altura, dataRegistro);
+        return new Imc(id, situacao, peso, altura, dataRegistro, usuarioCadastro);
     }
 }
 

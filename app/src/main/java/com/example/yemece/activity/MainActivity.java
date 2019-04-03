@@ -96,11 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void simuladorImc(View view) {
-        Intent editImc = new Intent(this, SimuladorImcActivity.class);
-        startActivity(editImc);
-    }
-
     public void tabelaClassificacao(View view) {
         Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/renatomsoares/Yemece/blob/master/tabela-imc.png"));
         startActivity(viewIntent);
@@ -109,5 +104,10 @@ public class MainActivity extends AppCompatActivity {
     public void alarmControl(View view) {
         Intent alarmControl = new Intent(this, AlarmControlActivity.class);
         startActivity(alarmControl);
+    }
+
+    public void dicasImc(View view) {
+        Intent editImc = new Intent(this, DicasImcActivity.class);
+        startActivity(editImc);
     }
 }

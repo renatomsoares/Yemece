@@ -10,9 +10,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 
-/**
- * Created by luis.ferreira on 22/07/2016.
- */
 abstract public class CommonActivity extends AppCompatActivity {
 
     protected AutoCompleteTextView email;

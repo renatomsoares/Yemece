@@ -24,4 +24,14 @@
         android:onClick="OnToggleClicked"
         android:shadowColor="@color/colorPrimary" />
 
+    <Button
+        android:id="@+id/pararAlarme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:text="Parar"
+        android:onClick="pararAlarme"
+        android:shadowColor="@color/colorPrimary" />
+
 </LinearLayout>

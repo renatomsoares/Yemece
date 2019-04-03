@@ -10,8 +10,6 @@ import android.os.IBinder;
 import com.example.yemece.R;
 import com.example.yemece.activity.EditImcActivity;
 
-import java.util.Calendar;
-
 public class NotificationService extends Service {
 
     private NotificationManager mManager;

@@ -26,7 +26,7 @@ public class AlarmControlReceiver extends BroadcastReceiver
     @Override
     public void onReceive(Context context, Intent intent)
     {
-        Toast.makeText(context, "Mantenha-se no controle. Registre o seu peso!", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Yemece avisa: Hora de verificar a sua evolução!", Toast.LENGTH_LONG).show();
 
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         if (alarmUri == null)

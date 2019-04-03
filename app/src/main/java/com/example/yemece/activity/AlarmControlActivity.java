@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.yemece.R;
 import com.example.yemece.receivers.AlarmControlReceiver;
+import com.example.yemece.services.NotificationService;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -35,7 +36,7 @@ public class AlarmControlActivity extends AppCompatActivity
         long time;
         if (((ToggleButton) view).isChecked())
         {
-            Toast.makeText(AlarmControlActivity.this, "ALARM ON", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AlarmControlActivity.this, "Alarme ativado", Toast.LENGTH_SHORT).show();
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
             calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
@@ -55,7 +56,14 @@ public class AlarmControlActivity extends AppCompatActivity
         else
         {
             alarmManager.cancel(pendingIntent);
-            Toast.makeText(AlarmControlActivity.this, "ALARM OFF", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AlarmControlActivity.this, "Alarme desativado", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void pararAlarme(View view) {
+        AlarmManager aManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(getBaseContext(), AlarmControlReceiver.class);
+        PendingIntent pIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        aManager.cancel(pIntent);
     }
 }
