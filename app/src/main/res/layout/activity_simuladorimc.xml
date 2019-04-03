@@ -17,7 +17,7 @@
         android:name="com.example.yemece.fragments.ColorsFragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        tools:layout="@layout/colors_fragment"/>
+        tools:layout="@layout/dicas_fragment"/>
 
     <fragment
         android:id="@+id/show_color_frag"

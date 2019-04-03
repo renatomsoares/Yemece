@@ -38,7 +38,7 @@ public class ColorsFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.colors_fragment,
+        View view = inflater.inflate(R.layout.dicas_fragment,
                 container,
                 false);
 

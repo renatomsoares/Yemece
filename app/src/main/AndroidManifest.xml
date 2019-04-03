@@ -3,6 +3,8 @@
     package="com.example.yemece">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -11,13 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".activity.MessageActivity"
             android:theme="@style/Theme.AppCompat"></activity>
+
         <activity
             android:name=".activity.AlarmControlActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <receiver android:name=".receivers.AlarmControlReceiver" />
+
+        <activity android:name=".activity.LoginActivity"
+            android:theme="@style/Theme.AppCompat"></activity>
+
+        <receiver android:name=".receivers.AlarmControlReceiver" />
+
         <receiver android:name=".receivers.StartUpBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -33,14 +43,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat" />
         <activity android:name=".activity.ListImcsActivity" />
+
+        <activity android:name=".activity.CadastroActivity"
+            android:theme="@style/Theme.AppCompat"></activity>
+
         <activity
             android:name=".activity.SimuladorImcActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".activity.EditImcActivity"/>
+
     </application>
 
 </manifest>
