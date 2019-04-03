@@ -1,8 +1,16 @@
 package com.example.yemece.activity;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +20,7 @@ import com.example.yemece.data.Imc;
 import com.example.yemece.data.ImcDAO;
 import com.example.yemece.enums.GravidadeIndiceImc;
 import com.example.yemece.helpers.CalculoImcHelper;
+import com.example.yemece.utils.NotificationUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,6 +58,7 @@ public class EditImcActivity extends Activity {
         finish();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void process(View view) {
         double peso = Double.parseDouble(edtPeso.getText().toString());
         double altura = Double.parseDouble(edtAltura.getText().toString());
@@ -72,6 +82,8 @@ public class EditImcActivity extends Activity {
             Imc imc = new Imc(calculoImc.getSituacao(), peso, altura, new SimpleDateFormat("dd-MM-yyyy (hh:mm)").format(hoje));
             imcDAO.save(imc);
             msg = "IMC registrado em = " + imc.getDataRegistro() + situacao;
+            this.notify(view);
+
 
 
         } else {
@@ -98,5 +110,24 @@ public class EditImcActivity extends Activity {
         //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         setResult(RESULT_OK);
         finish();
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void notify(View view) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NotificationUtils.getChannelId(this));
+
+        builder.setContentTitle("Mantenha-se no controle");
+        builder.setContentText("Cadastre um alarme para lembrar disso!");
+        builder.setSmallIcon(android.R.drawable.sym_action_chat);
+
+        Intent intent = new Intent(this, MessageActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
+        builder.setContentIntent(pendingIntent);
+        builder.setAutoCancel(true);
+
+        Notification notification =  builder.build();
+        NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(50,notification);
     }
 }

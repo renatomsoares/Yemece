@@ -2,22 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    >
 
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="wrap_content"
-        android:layout_height="503dp"
-        android:headerBackground="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:amPmTextColor="@color/colorPrimaryDark"
+        android:headerBackground="@color/colorPrimaryDark"
+        android:numbersBackgroundColor="@color/colorPrimary"
         android:numbersSelectorColor="@color/colorPrimary" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:checked="false"
         android:onClick="OnToggleClicked"
         android:shadowColor="@color/colorPrimary" />
 

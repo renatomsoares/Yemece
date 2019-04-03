@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".activity.SimuladorImcActivity"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    >
 
 
 
