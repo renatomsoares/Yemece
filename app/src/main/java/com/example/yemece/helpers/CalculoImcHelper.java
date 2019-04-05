@@ -56,6 +56,15 @@ public class CalculoImcHelper {
     }
 
     public double getDiferencaPesoParaSituacaoIdeal() {
-        return indice - (altura*altura);
+
+        if (peso > pesoIdeal(altura))
+            return peso - pesoIdeal(altura);
+        else {
+            return pesoIdeal(altura) - peso;
+        }
+    }
+
+    private double pesoIdeal(double alt) {
+        return 21.75 * (alt * alt); //21.75 é a media do intervalo do peso ideal.
     }
 }

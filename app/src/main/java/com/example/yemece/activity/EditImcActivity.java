@@ -80,9 +80,9 @@ public class EditImcActivity extends Activity {
 
             if (calculoImc.getGravidadeIndice() != GravidadeIndiceImc.NENHUMA) {
                 if (calculoImc.getIndice() > 24.9) {
-                    situacao = ". Você precisa perder " + String.format("%.2f", Math.abs(calculoImc.getDiferencaPesoParaSituacaoIdeal())) + "kg para atingir o IMC ideal.";
+                    situacao = ". Você precisa perder " + calculoImc.getDiferencaPesoParaSituacaoIdeal() + "kg para atingir o peso ideal.";
                 } else {
-                    situacao = ". Você precisa ganhar " + String.format("%.2f", Math.abs(calculoImc.getDiferencaPesoParaSituacaoIdeal())) + "kg para atingir o IMC ideal.";
+                    situacao = ". Você precisa ganhar " + calculoImc.getDiferencaPesoParaSituacaoIdeal() + "kg para atingir o peso ideal.";
                 }
             }
 
@@ -100,10 +100,6 @@ public class EditImcActivity extends Activity {
                 imcDAO.save(imc);
                 msg = "IMC registrado em = " + imc.getDataRegistro() + situacao;
 
-                if (calculoImc.getGravidadeIndice() == GravidadeIndiceImc.ALTA) {
-                    this.notify(view);
-                }
-
             } else {
                 imc.setSituacao(calculoImc.getSituacao());
                 imc.setPeso(peso);
@@ -112,6 +108,10 @@ public class EditImcActivity extends Activity {
 
                 imcDAO.update(imc);
                 msg = "O IMC registrado em = " + imc.getDataRegistro() + " foi atualizado" +  situacao;
+            }
+
+            if (calculoImc.getGravidadeIndice() == GravidadeIndiceImc.ALTA) {
+                this.notify(view);
             }
 
             final Toast toast = Toast.makeText(this, msg,Toast.LENGTH_SHORT);

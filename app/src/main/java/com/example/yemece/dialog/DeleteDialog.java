@@ -28,7 +28,7 @@ public class DeleteDialog extends DialogFragment implements DialogInterface.OnCl
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Deseja excluir o registro " + imc.getSituacao() + "?");
+        builder.setMessage("Deseja excluir o registro de " + imc.getDataRegistro() + "?");
         builder.setPositiveButton("Sim", this);
         builder.setNegativeButton("Não", this);
         return builder.create();
